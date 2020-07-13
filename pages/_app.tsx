@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
                     name="twitter:description"
                     content="Don't know whether something is cake? We've got you covered."
                 />
-                <meta name="twitter:image" content="/cake.png" />
+                <meta name="twitter:image" content="https://cakeornotcake.christse.io/cake.png" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="w-screen h-screen bg-gray-100">
