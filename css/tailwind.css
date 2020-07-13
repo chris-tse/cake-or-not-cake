@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scanner {
+    transform: translateY(0px);
+    animation: scanning 2s ease-in-out infinite;
+}
+
+@keyframes scanning {
+    50% {
+        transform: translateY(300px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

@@ -1,16 +1,27 @@
 {
-  "name": "next-netlify-starter",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export"
-  },
-  "dependencies": {
-    "next": "9.4.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+	"name": "next-netlify-starter",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "npm run build:css && next build",
+		"build:css": "postcss build css/tailwind.css -o css/compiled.css",
+		"start": "next start",
+		"export": "next export"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.8.5",
+		"cssnano": "^4.1.10",
+		"next": "9.4.0",
+		"postcss-cli": "^7.1.1",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"tailwindcss": "^1.4.6"
+	},
+	"devDependencies": {
+		"@types/node": "^14.0.22",
+		"@types/react": "^16.9.43",
+		"prettier": "^2.0.5",
+		"typescript": "^3.9.6"
+	}
 }
