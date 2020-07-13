@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "npm run build:css && next dev",
 		"build": "npm run build:css && next build",
 		"build:css": "postcss build css/tailwind.css -o css/compiled.css",
 		"start": "next start",
