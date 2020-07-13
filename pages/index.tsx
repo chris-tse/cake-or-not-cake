@@ -97,7 +97,7 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center">
                     <img
                         className="mb-8"
-                        style={{ maxWidth: 300, maxHeight: 300 }}
+                        style={{ maxWidth: 250, maxHeight: 300 }}
                         src={imageData}
                         alt="Uploaded image"
                     />

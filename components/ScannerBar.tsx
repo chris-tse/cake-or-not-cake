@@ -12,6 +12,15 @@ export default function ScannerBar({ classes, height }) {
                     animation: scanning 2s ease-in-out infinite;
                 }
 
+                @-webkit-keyframes scanning {
+                    50% {
+                        -webkit-transform: translateY(${height}px);
+                    }
+                    100% {
+                        -webkit-transform: translateY(0px);
+                    }
+                }
+
                 @keyframes scanning {
                     50% {
                         transform: translateY(${height}px);
