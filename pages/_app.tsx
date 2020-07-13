@@ -7,6 +7,14 @@ export default function App({ Component, pageProps }) {
             <Head>
                 <title>Cake or Not Cake</title>
                 <meta name="description" content="Don't know whether something is cake? We've got you covered." />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:creator" content="@ChrisMTse" />
+                <meta name="twitter:title" content="Cake or Not Cake" />
+                <meta
+                    name="twitter:description"
+                    content="Don't know whether something is cake? We've got you covered."
+                />
+                <meta name="twitter:image" content="/cake.png" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="w-screen h-screen bg-gray-100">
