@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import ScannerBar from '@/components/ScannerBar'
 
 const DynamicFileUpload = dynamic(() => import('@components/FileUpload'), { ssr: false })
@@ -33,6 +33,7 @@ const results: Result[] = [
 export default function Home() {
     const [imageData, setImageData] = useState(null)
     const [result, setResult] = useState<Result>(null)
+    const imageEl = useRef(null)
     const [state, setState] = useState<State>('START')
 
     function onImageParse(data) {
@@ -78,8 +79,12 @@ export default function Home() {
                             style={{ maxWidth: 300, maxHeight: 300 }}
                             src={imageData}
                             alt="Uploaded image with scanning bar animation"
+                            ref={imageEl}
                         />
-                        <ScannerBar classes="col-start-1 row-start-1 w-4/5 mx-auto" />
+                        <ScannerBar
+                            classes="col-start-1 row-start-1 w-4/5 mx-auto"
+                            height={imageEl.current.offsetHeight}
+                        />
                     </div>
                 </>
             ) : null}
