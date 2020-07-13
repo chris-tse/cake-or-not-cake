@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import ScannerBar from '@/components/ScannerBar'
 
 const DynamicFileUpload = dynamic(() => import('@components/FileUpload'), { ssr: false })
@@ -33,8 +33,15 @@ const results: Result[] = [
 export default function Home() {
     const [imageData, setImageData] = useState(null)
     const [result, setResult] = useState<Result>(null)
-    const imageEl = useRef(null)
+    const [height, setHeight] = useState(300)
     const [state, setState] = useState<State>('START')
+    const imageEl = useCallback(node => {
+        if (node !== null) {
+            setTimeout(() => {
+                setHeight(node.offsetHeight)
+            }, 0)
+        }
+    }, [])
 
     function onImageParse(data) {
         setImageData(data)
@@ -53,7 +60,7 @@ export default function Home() {
     }
 
     return (
-        <main className="max-w-lg mx-auto">
+        <main className="max-w-lg mx-auto px-4">
             <h1 className="text-5xl font-bold text-center mb-8">Cake or Not Cake</h1>
 
             {state === 'START' ? (
@@ -75,16 +82,13 @@ export default function Home() {
                 <>
                     <div className="grid grid-cols-1 grid-rows-1 justify-center">
                         <img
-                            className="col-start-1 row-start-1 mx-auto"
-                            style={{ maxWidth: 300, maxHeight: 300 }}
+                            className="col-start-1 row-start-1 mx-auto w-auto"
+                            style={{ maxWidth: 250, maxHeight: 300 }}
                             src={imageData}
                             alt="Uploaded image with scanning bar animation"
                             ref={imageEl}
                         />
-                        <ScannerBar
-                            classes="col-start-1 row-start-1 w-4/5 mx-auto"
-                            height={imageEl.current.offsetHeight}
-                        />
+                        <ScannerBar classes="col-start-1 row-start-1 w-full mx-auto" height={height} />
                     </div>
                 </>
             ) : null}
