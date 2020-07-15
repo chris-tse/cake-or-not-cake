@@ -4,11 +4,6 @@ module.exports = {
         // Perform customizations to webpack config
         // Important: return the modified config
         config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
-
-        config.resolve.alias = {
-            ...config.resolve.alias,
-            '@': './',
-        }
         return config
     },
     webpackDevMiddleware: config => {
