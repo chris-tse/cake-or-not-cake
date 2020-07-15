@@ -3,16 +3,15 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "npm run build:css && next dev",
-		"build": "npm run build:css && next build",
-		"build:css": "postcss build css/tailwind.css -o css/compiled.css",
+		"dev": "next dev",
+		"build": "next build && next export",
 		"start": "next start",
 		"export": "next export"
 	},
 	"dependencies": {
 		"autoprefixer": "^9.8.5",
 		"cssnano": "^4.1.10",
-		"next": "9.4.0",
+		"next": "9.4.4",
 		"postcss-cli": "^7.1.1",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
